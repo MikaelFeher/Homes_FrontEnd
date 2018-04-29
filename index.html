@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="HomesApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Homes</title>
+</head>
+<body ng-controller="HomesCtrl">
+<div>
+    <h1>Homes</h1>
+    <div id="main_content">
+        <ul id="list" ng-repeat="(key, value) in homes" class="" ng-click="clickFunc()">
+            <li>
+                <h1>{{ key }}</h1>
+                <ul ng-repeat="(key, value) in value">
+                    <li ng-repeat="(key, value) in value">
+                        <h3 class="room_name">{{ value.name }}</h3>
+                        <ul>
+                            <li>Temperatur: {{ value.temperature }}&#8451;</li>
+                            <li>Luftfuktighet: {{ value.humidity }}</li>
+                        </ul>
+                        <hr>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>

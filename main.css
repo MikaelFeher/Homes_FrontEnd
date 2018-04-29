@@ -1,0 +1,29 @@
+#main_content {
+    display: flex;
+    justify-content: space-around;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 2%;
+    text-align: center;
+}
+
+#list {
+    margin: 2% auto;
+    box-shadow: 0 0 15px 0 #333;
+    padding: 2%;
+    min-width: 33%;
+    max-width: 33%;
+}
+
+#list h1 {
+    text-transform: capitalize;
+    text-align: center;
+}
+
+
