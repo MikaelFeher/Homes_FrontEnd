@@ -2,18 +2,22 @@ const app = angular.module("HomesApp", []);
 
 app.controller("HomesCtrl", ['$scope','$http', '$interval', function ($scope, $http, $interval) {
     let getJson = function() {
-        $http.get("http://localhost:3000/homes").then(function (data) {
-            $scope.homes = data.data;
-        })};
+        $http.get("http://localhost:3000/homes")
+            .then(function (data) {
+                $scope.homes = data.data;
+            }
+        )};
+    getJson();
 
     $interval(getJson, 3000);
 
-    // $scope.clickFunc = function () {
-    //     alert("Clicked!!!");
-    // }
+    $scope.clickFunc = function () {
+        alert("Clicked!!!");
+    }
 }]);
 
-
+//TODO: Individual house view
+//TODO: ngRoute?
 
 
 // const list = document.getElementById("list");
