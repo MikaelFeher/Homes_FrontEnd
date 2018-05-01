@@ -1,12 +1,19 @@
 body {
     height: 100vh;
-    background: url("//longwallpapers.com/Desktop-Wallpaper/sky-wallpaper-1080p-For-Desktop-Wallpaper.jpg");
+    background: url("//images.pexels.com/photos/277667/pexels-photo-277667.jpeg?cs=srgb&dl=landscape-house-grass-277667.jpg&fm=jpg");
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Lato', sans-serif;
+    overflow: hidden;
+}
+
+#app {
+    height: 75%;
+    margin: auto;
 }
 
 #main_content {
+    margin: 5% auto;
     display: flex;
     justify-content: space-around;
 }
@@ -28,7 +35,7 @@ ul {
     min-width: 33%;
     max-width: 33%;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, .6);
+    background-color: rgba(255, 255, 255, .8);
 }
 
 #list h1 {
@@ -36,4 +43,37 @@ ul {
     text-align: center;
 }
 
+#main_content_single_house {
+    margin: 5% auto;
+    overflow-x: hidden
+}
 
+#list_single_house{
+    margin: 1% auto;
+    box-shadow: 0 0 15px 0 #333;
+    padding: 2%;
+    min-width: 33%;
+    max-width: 33%;
+    background-color: rgba(255, 255, 255, .8);
+}
+
+#list_single_house h1 {
+    text-transform: capitalize;
+    text-align: center;
+}
+
+#list_single_house li:first-of-type {
+    margin-bottom: 2%;
+}
+
+#home_link {
+    margin-top: 10%;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid #333;
+    padding: 2%;
+    background-color: orange;
+    color: white;
+    border-radius: 10%;
+}

@@ -1,52 +1,55 @@
-const app = angular.module("HomesApp", []);
+const app = angular.module('HomesApp', ['ngRoute']);
 
-app.controller("HomesCtrl", ['$scope','$http', '$interval', function ($scope, $http, $interval) {
-    let getJson = function() {
-        $http.get("http://localhost:3000/homes")
+app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+    $routeProvider
+    .when('/', {
+        templateUrl: 'homes.html',
+        controller: 'HomesCtrl'
+    })
+    .when('/homes/:id', {
+        templateUrl: 'house.html',
+        controller: 'HouseCtrl'
+    });
+}])
+
+app.controller('HomesCtrl', ['$scope', '$http', '$interval', '$location', function ($scope, $http, $interval, $location) {
+    // Get all houses from API...
+    let getAllHomes = function () {
+        $http.get('//localhost:3000/homes')
             .then(function (data) {
                 $scope.homes = data.data;
             }
-        )};
-    getJson();
+        )
+    };
 
-    $interval(getJson, 3000);
+    // Get the data for initial page load...
+    getAllHomes();
 
-    $scope.clickFunc = function () {
-        alert("Clicked!!!");
+    // Get data every 3 seconds...
+    $interval(getAllHomes, 3000);
+
+    // Get house id for the clicked house and redirect to that house view...
+    $scope.getHouseById = function(houseId) {
+        $location.url(`/homes/${houseId}`)
     }
 }]);
 
-//TODO: Individual house view
-//TODO: ngRoute?
+app.controller('HouseCtrl', ['$scope', '$http', '$routeParams', '$interval',  function($scope, $http, $routeParams, $interval) {
+    $scope.houseId = $routeParams.id;
 
+    // Get 1 house from API
+    let getHouse = function() {
+        $http.get(`//localhost:3000/homes/${$scope.houseId}/data`)
+            .then(function (data) {
+                $scope.house = data.data;
+                console.log($scope.house);
+            }
+        )
+    }
 
-// const list = document.getElementById("list");
-//
-// fetch("http://localhost:3000/homes")
-//     .then(function (response) {
-//         return response.json();
-//     })
-//     .then(function (data) {
-//
-//         console.log(data);
-//
-//         for (const house in data) {
-//             for (const room in data[house]) {
-//                 for (let i = 0; i < data[house][room].length; i++) {
-//                     console.log(data[house][room][i]);
-//
-//                     let listItem = document.createElement('li');
-//
-//                     listItem.innerHTML = `${house} <ul>
-//                         <li>Rum: ${data[house][room][i].name}</li>
-//                         <li>Temperatur: ${data[house][room][i].temperature}</li>
-//                         <li>Luftfuktighet: ${data[house][room][i].humidity}</li>
-//                     </ul>`;
-//
-//                     console.log('hello')
-//
-//                     list.appendChild(listItem);
-//                 }
-//             }
-//         }
-//     });
+    // Get the data for initial page load...
+    getHouse();
+
+    // Get data every 3 seconds...
+    $interval(getHouse, 3000);
+}]);

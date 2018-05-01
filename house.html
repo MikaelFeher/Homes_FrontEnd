@@ -1,0 +1,20 @@
+<div id="main_content_single_house">
+    <div>
+    </div>
+    <ul id="list_single_house" ng-repeat="rooms in house">
+        <li>
+            <h1>{{ houseId }}</h1>
+            <ul ng-repeat="room in rooms">
+                <li>
+                    <h3 class="room_name">{{ room.name }}</h3>
+                    <ul>
+                        <li>Temperatur: {{ room.temperature }}&#8451;</li>
+                        <li>Luftfuktighet: {{ room.humidity }}&#37;</li>
+                    </ul>
+                    <hr>
+                </li>
+            </ul>
+        </li>
+        <a id="home_link" href="/">Hem</a>      
+    </ul>
+</div>

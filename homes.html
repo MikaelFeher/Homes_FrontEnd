@@ -1,0 +1,17 @@
+<div id="main_content">
+    <ul id="list" ng-repeat="(key, value) in homes" ng-click="getHouseById(key)">
+        <li>
+            <h1>{{ key }}</h1>
+            <ul ng-repeat="(key, value) in value">
+                <li ng-repeat="(key, value) in value">
+                    <h3 class="room_name">{{ value.name }}</h3>
+                    <ul>
+                        <li>Temperatur: {{ value.temperature }}&#8451;</li>
+                        <li>Luftfuktighet: {{ value.humidity }}&#37;</li>
+                    </ul>
+                    <hr>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
