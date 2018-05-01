@@ -1,10 +1,9 @@
 body {
-    height: 100vh;
+    /* height: 100vh; */
     background: url("//images.pexels.com/photos/277667/pexels-photo-277667.jpeg?cs=srgb&dl=landscape-house-grass-277667.jpg&fm=jpg");
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Lato', sans-serif;
-    overflow: hidden;
 }
 
 #app {
@@ -16,6 +15,7 @@ body {
     margin: 5% auto;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 h1 {
