@@ -1,5 +1,6 @@
 <div id="main_content_single_house">
-    <div>
+    <div ng-if="house == null">
+        <h1>Datan du sökte finns ej!</h1>
     </div>
     <ul id="list_single_house" ng-repeat="rooms in house">
         <li>

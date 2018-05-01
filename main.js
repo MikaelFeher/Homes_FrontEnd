@@ -9,7 +9,8 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
     .when('/homes/:id', {
         templateUrl: 'house.html',
         controller: 'HouseCtrl'
-    });
+    })
+    .otherwise({redirectTo: '/'});
 }])
 
 app.controller('HomesCtrl', ['$scope', '$http', '$interval', '$location', function ($scope, $http, $interval, $location) {
@@ -41,7 +42,7 @@ app.controller('HouseCtrl', ['$scope', '$http', '$routeParams', '$interval',  fu
     let getHouse = function() {
         $http.get(`//localhost:3000/homes/${$scope.houseId}/data`)
             .then(function (data) {
-                $scope.house = data.data;
+                $scope.house = data.data == 'Data does not exist' ? null : data.data;
                 console.log($scope.house);
             }
         )
