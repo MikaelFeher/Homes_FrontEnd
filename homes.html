@@ -1,16 +1,14 @@
 <div id="main_content">
-    <ul id="list" ng-repeat="(key, value) in homes" ng-click="getHouseById(key)">
+    <ul id="list" ng-repeat="home in homes" ng-click="getHouseById(home.id)">
         <li>
-            <h1>{{ key }}</h1>
-            <ul ng-repeat="(key, value) in value">
-                <li ng-repeat="(key, value) in value">
-                    <h3 class="room_name">{{ value.name }}</h3>
-                    <ul>
-                        <li>Temperatur: {{ value.temperature }}&#8451;</li>
-                        <li>Luftfuktighet: {{ value.humidity }}&#37;</li>
-                    </ul>
-                    <hr>
-                </li>
+            <h1>{{ home.id }}</h1>
+            <ul ng-repeat="room in home.rooms">
+                <h3 class="room_name">{{ room.name }}</h3>
+                <ul>
+                    <li>Temperatur: {{ room.temperature }}&#8451;</li>
+                    <li>Luftfuktighet: {{ room.humidity }}&#37;</li>
+                </ul>
+                <hr>
             </ul>
         </li>
     </ul>

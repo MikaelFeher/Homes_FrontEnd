@@ -2,10 +2,10 @@
     <div ng-if="house == null">
         <h1>Datan du sökte finns ej!</h1>
     </div>
-    <ul id="list_single_house" ng-repeat="rooms in house">
+    <ul id="list_single_house">
         <li>
-            <h1>{{ houseId }}</h1>
-            <ul ng-repeat="room in rooms">
+            <h1>{{ house.id }}</h1>
+            <ul ng-repeat="room in house.rooms">
                 <li>
                     <h3 class="room_name">{{ room.name }}</h3>
                     <ul>

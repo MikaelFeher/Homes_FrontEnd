@@ -43,7 +43,6 @@ app.controller('HouseCtrl', ['$scope', '$http', '$routeParams', '$interval',  fu
         $http.get(`//localhost:3000/homes/${$scope.houseId}/data`)
             .then(function (data) {
                 $scope.house = data.data == 'Data does not exist' ? null : data.data;
-                console.log($scope.house);
             }
         )
     }
